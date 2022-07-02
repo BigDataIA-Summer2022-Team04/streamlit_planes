@@ -8,6 +8,6 @@ ADD . /app
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8505
+EXPOSE 8078
 
-CMD ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "main.py", "--server.port", "8078"]
