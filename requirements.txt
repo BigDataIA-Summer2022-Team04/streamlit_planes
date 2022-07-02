@@ -3,3 +3,4 @@ watchdog
 pandas
 matplotlib
 pyarrow
+seaborn

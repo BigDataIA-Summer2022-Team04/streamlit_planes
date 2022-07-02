@@ -7,13 +7,12 @@ import matplotlib.pyplot as plt
 import requests
 import json
 from PIL import Image
-import ssl
 import seaborn as sns
-
 
 def app():
     st.markdown("# Spy Plane Registration Details based on No of flights")
     st.sidebar.header("No of flights")
+
 
 
     st.write(

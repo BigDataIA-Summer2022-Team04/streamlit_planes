@@ -4,7 +4,7 @@ import requests
 import os
 import json
 from main_page import MultiApp
-from pages import home, maps, states, data, abhi # import your app modules here
+from pages import home, maps, states, data, abhi, aircrafts, typeaircrafts, typeengines # import your app modules here
 
 
 st.set_page_config(page_title="Spy Plane Dashboard", page_icon="✈️", layout="wide")
@@ -29,8 +29,7 @@ if st.session_state['if_logged'] == False:
         submit = st.form_submit_button("Submit")
         if submit:
             url = "https://api.anandpiyush.com/login"
-            payload={'username': 'anand.pi@northeastern.edu', 'password': '4cVoAWUQxxG'}
-            # payload={'username': username, 'password': password}
+            payload={'username': username, 'password': password}
             response = requests.request("POST", url, data=payload)
             if response.status_code == 200:
                 json_data = json.loads(response.text)
@@ -55,6 +54,9 @@ if st.session_state['if_logged'] == True:
     app.add_app("Maps", maps.app)
     app.add_app("Data", data.app)
     app.add_app("Spy or Not Spy", abhi.app)
+    app.add_app("Aircrafts", aircrafts.app)
+    app.add_app("Type Aircrafts", typeaircrafts.app)
+    app.add_app("Type Engine", typeengines.app)
     # The main app
     app.run()
 
