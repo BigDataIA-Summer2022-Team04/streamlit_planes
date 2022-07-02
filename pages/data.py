@@ -57,7 +57,6 @@ def app():
     submitted3 = st.button(label="Search",key=3)
     if submitted3:
         url = f"https://api.anandpiyush.com/flight_details_between_years?start_date={start_date}&end_date={end_date}"
-        st.write("Response Code: "+str(response_code))
         headers = {}
         headers['Authorization'] = f"Bearer {st.session_state['access_token']}"
         response = requests.request("GET", url, headers=headers)
