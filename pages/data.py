@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
-
-
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 def app():
@@ -31,7 +32,11 @@ def app():
         headers['Authorization'] = f"Bearer {st.session_state['access_token']}"
         response = requests.request("GET", url, headers=headers)
         if response.status_code == 200:
-            st.write(response.text)
+            da=pd.read_json(response.text)
+            fig2=plt.figure()
+            sns.barplot(x='NAME', y='COUNT_ENGINE_TYPE', data=da)
+            plt.xticks(rotation=90)
+            st.pyplot(fig2)
         else:
             st.error("Error")
     
@@ -46,7 +51,7 @@ def app():
         headers['Authorization'] = f"Bearer {st.session_state['access_token']}"
         response = requests.request("GET", url, headers=headers)
         if response.status_code == 200:
-            st.write(response.text)
+            st.json(response.text)
         else:
             st.error("Error")
     
@@ -61,7 +66,15 @@ def app():
         headers['Authorization'] = f"Bearer {st.session_state['access_token']}"
         response = requests.request("GET", url, headers=headers)
         if response.status_code == 200:
-            st.write(response.text)
+            da=pd.read_json(response.text)
+            u=da.groupby(['YEAR_MFR'])['YEAR_MFR'].count().reset_index(name='Count_Of_Flights')
+            #u.columns=["Year","Count"]
+            u["YEAR_MFR"]=u["YEAR_MFR"].str.slice(0,4)
+
+            fig2=plt.figure()
+            sns.barplot(x='YEAR_MFR', y='Count_Of_Flights', data=u)
+            plt.xticks(rotation=0)
+            st.pyplot(fig2)
         else:
             st.error("Error")
     
