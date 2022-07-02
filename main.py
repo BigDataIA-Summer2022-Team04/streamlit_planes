@@ -6,8 +6,7 @@ import json
 from main_page import MultiApp
 from pages import home, maps, states, data, abhi, aircrafts, typeaircrafts, typeengines # import your app modules here
 
-
-st.set_page_config(page_title="Spy Plane Dashboard", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="Spy Plane Dashboard", page_icon="✈️", layout="wide", initial_sidebar_state="collapsed")
 
 if 'if_logged' not in st.session_state:
     st.session_state['if_logged'] = False
@@ -45,7 +44,7 @@ if st.session_state['if_logged'] == True:
     app = MultiApp()
     st.markdown("""
     # Spy Plane & FAA Registration Dashboard
-    Welcome to 
+    Welcome to the Interactive Dashboard
     """)
 
     # Add all your application here
@@ -54,9 +53,9 @@ if st.session_state['if_logged'] == True:
     app.add_app("Maps", maps.app)
     app.add_app("Data", data.app)
     app.add_app("Spy or Not Spy", abhi.app)
-    app.add_app("Aircrafts", aircrafts.app)
-    app.add_app("Type Aircrafts", typeaircrafts.app)
-    app.add_app("Type Engine", typeengines.app)
+    app.add_app("Aircrafts in General", aircrafts.app)
+    app.add_app("Find Aircrafts", typeaircrafts.app)
+    app.add_app("Explore Engine", typeengines.app)
     # The main app
     app.run()
 
