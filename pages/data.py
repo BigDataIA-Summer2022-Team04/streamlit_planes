@@ -23,6 +23,8 @@ def app():
     session = requests.Session()
     #Function1
     st.subheader("**Get_Popular_Engine_Count :hammer_and_wrench::gear::** ")
+    st.subheader("**Get_Company_Address :round_pushpin::**")	
+    st.markdown('This function gives the complete address of the registered company based on the flight ID. Accepts N_Number as input and returns records of flight number, company name, street, street2, city, state, zip code, region, country.')
     submitted1 = st.button(label="Search",key=1)
     if submitted1:
         st.write("Response")
@@ -41,7 +43,8 @@ def app():
             st.error("Error")
     
     #Function2
-    st.subheader("**Get_Company_Address :round_pushpin::**")
+    st.subheader("**Get_Company_Address :round_pushpin::**")	
+    st.markdown('This function gives the complete address of the registered company based on the flight ID. Accepts N_Number as input and returns records of flight number, company name, street, street2, city, state, zip code, region, country.')
     N_NUMBER = st.text_input("N_NUMBER", key="index")
     submitted2 = st.button(label="Search",key=2)
     if submitted2:
@@ -56,7 +59,8 @@ def app():
             st.error("Error")
     
     #Function3
-    st.subheader("**Flight_Details_Between_Years :small_airplane: :**")
+    st.subheader("**Flight_Details_Between_Years :small_airplane::date: :**")	
+    st.markdown('This function accepts two date values as an input and return the details of flight for which engine were manufactured between those particular year.')
     start_date = st.text_input("Start Date", key="index1")
     end_date = st.text_input("End Date", key="index2")
     submitted3 = st.button(label="Search",key=3)
