@@ -23,8 +23,7 @@ def app():
     session = requests.Session()
     #Function1
     st.subheader("**Get_Popular_Engine_Count :hammer_and_wrench::gear::** ")
-    st.subheader("**Get_Company_Address :round_pushpin::**")	
-    st.markdown('This function gives the complete address of the registered company based on the flight ID. Accepts N_Number as input and returns records of flight number, company name, street, street2, city, state, zip code, region, country.')
+    st.markdown('This function gives the aggregate details of flights with graph based on the count of engine used in them. From which we can get the data of popular engines used.')
     submitted1 = st.button(label="Search",key=1)
     if submitted1:
         st.write("Response")
